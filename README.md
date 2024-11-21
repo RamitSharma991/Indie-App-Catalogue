@@ -1,6 +1,6 @@
 # Indie-App-Catalogue
 
-- OWS
+- WS
 - PW
 - BS
 
