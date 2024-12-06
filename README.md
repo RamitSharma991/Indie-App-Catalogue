@@ -1,7 +1,7 @@
 # Indie App Catalogue 📱✨  
 A collection of **SwiftUI-based projects** designed for learning, experimenting, and building polished indie apps. Each project is focused on a specific use case, showcasing practical implementations of **SwiftUI** and other iOS development techniques.
 
----
+--- 
 
 ## 🚀 Projects in the Catalogue
 
@@ -9,8 +9,8 @@ A collection of **SwiftUI-based projects** designed for learning, experimenting,
 A simple app that helps users replace words or phrases in a body of text with alternative words, making it perfect for writers, editors, and content creators.  
  
 #### Features:
-- Input and output text fields for substitution.
-- Customizable substitution pairs for flexibility.
+- Word substitutes for phrases to improve language skills.
+- Phrase usage and meaning with their one word substitutes.
 - Intuitive SwiftUI design for a distraction-free experience.
 
 #### Key Concepts:
