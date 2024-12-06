@@ -5,7 +5,7 @@ A collection of **SwiftUI-based projects** designed for learning, experimenting,
 
 ## 🚀 Projects in the Catalogue
 
-### 1. **Word Substitute App** ✍️  
+### 1. ** Wordsubs(Word Substitute App)** ✍️  
 A simple app that helps users replace words or phrases in a body of text with alternative words, making it perfect for writers, editors, and content creators.  
  
 #### Features:
@@ -50,7 +50,7 @@ A guided breathing exercise app for relaxation, focus, and mindfulness.
 
 ---
 
-### 4. **Tech News App** 📰  
+### 4. **TechFizz(Tech News App)** 📰  
 A sleek news aggregator app for staying updated with the latest in the tech world.  
 
 #### Features:
