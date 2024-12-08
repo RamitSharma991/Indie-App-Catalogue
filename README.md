@@ -21,12 +21,11 @@ A simple app that helps users replace words or phrases in a body of text with al
 ---
 
 ### 2. **Pocket Wallet App** 💳  
-An offline, lightweight personal finance tracker for managing daily expenses and savings.  
+An offline, lightweight personal wallet for storing necessary documents required in daily life.  
 
 #### Features:
-- Add, edit, and delete transactions.
-- Visualize expenses with pie charts and bar graphs.
-- Track spending categories like food, travel, and more.
+- Add, edit, and delete documents.
+- Visualize documents concisely.
 
 #### Key Concepts:
 - Data persistence with **Core Data** or **UserDefaults**.
