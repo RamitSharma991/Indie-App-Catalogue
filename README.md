@@ -2,7 +2,7 @@
 A collection of **SwiftUI-based projects** designed for learning, experimenting, and building polished indie apps. Each project is focused on a specific use case, showcasing practical implementations of **SwiftUI** and other iOS development techniques. 
 
 --- 
-
+ 
 ## 🚀 Projects in the Catalogue
 
 ### 1. **Wordsubs(Word Substitute App)** ✍️  
