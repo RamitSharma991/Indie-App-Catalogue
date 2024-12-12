@@ -10,7 +10,7 @@ A simple app that helps users replace words or phrases in a body of text with al
  
 #### Features:
 - Word substitutes for phrases to improve language skills.
-- Phrase usage and meaning with their one word substitutes.
+- Phrase usage and meaning with their one word substitutes. 
 - Intuitive SwiftUI design for a distraction-free experience.
 
 #### Key Concepts:
