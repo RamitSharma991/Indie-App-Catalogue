@@ -65,8 +65,8 @@ struct WelcomeView: View {
                             .fontWeight(.semibold)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 20)
-                            .background(.ultraThinMaterial)
-                            .foregroundColor(.accentColor)
+                            .background(Color.accentColor)
+                            .foregroundColor(.white)
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                             .shadow(color: .black.opacity(0.1), radius: 20, x: 0, y: 10)
                     }
