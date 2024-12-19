@@ -39,8 +39,8 @@ A guided breathing exercise app for relaxation, focus, and mindfulness.
 
 #### Features:
 - Multiple breathing patterns like Box Breathing, 4-7-8, and more.
-- Real-time animations to guide breathing cycles.
-- Session tracking and history.
+- Dynamic animations to guide breathing cycles.
+- Session tracking and history using Swift Charts.
 
 #### Key Concepts:
 - SwiftUI animations for smooth, soothing breathing guides.
