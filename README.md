@@ -34,7 +34,7 @@ An offline, lightweight personal wallet for storing necessary documents required
 
 ---
 
-### 3. **Breathing App** 🌬️  
+### 3. **BreatheSnack(Breathing App)** 🌬️  
 A guided breathing exercise app for relaxation, focus, and mindfulness.  
 
 #### Features:
