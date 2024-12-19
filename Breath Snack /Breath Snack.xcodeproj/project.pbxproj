@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6125B69D2CE77FC1009BB0D9 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6125B69C2CE77FC1009BB0D9 /* SessionManager.swift */; };
+		6170ED112CE23DFA00ED339D /* Breath_SnackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED102CE23DFA00ED339D /* Breath_SnackApp.swift */; };
+		6170ED152CE23DFE00ED339D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6170ED142CE23DFE00ED339D /* Assets.xcassets */; };
+		6170ED182CE23DFE00ED339D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6170ED172CE23DFE00ED339D /* Preview Assets.xcassets */; };
+		6170ED222CE23DFE00ED339D /* Breath_SnackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED212CE23DFE00ED339D /* Breath_SnackTests.swift */; };
+		6170ED2C2CE23DFE00ED339D /* Breath_SnackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED2B2CE23DFE00ED339D /* Breath_SnackUITests.swift */; };
+		6170ED2E2CE23DFE00ED339D /* Breath_SnackUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED2D2CE23DFE00ED339D /* Breath_SnackUITestsLaunchTests.swift */; };
+		6170ED3B2CE242B000ED339D /* BreathingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED3A2CE242B000ED339D /* BreathingSessionView.swift */; };
+		6170ED3D2CE242FE00ED339D /* BreathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED3C2CE242FE00ED339D /* BreathView.swift */; };
+		6170ED3F2CE2431800ED339D /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED3E2CE2431800ED339D /* MainTabView.swift */; };
+		6170ED412CE2432D00ED339D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED402CE2432D00ED339D /* WelcomeView.swift */; };
+		6170ED432CE243EA00ED339D /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED422CE243EA00ED339D /* AccountView.swift */; };
+		6170ED452CE2441300ED339D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED442CE2441300ED339D /* CalendarView.swift */; };
+		6170ED472CE2443C00ED339D /* BreathSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED462CE2443C00ED339D /* BreathSession.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6170ED1E2CE23DFE00ED339D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6170ED052CE23DFA00ED339D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6170ED0C2CE23DFA00ED339D;
+			remoteInfo = "Breath Snack";
+		};
+		6170ED282CE23DFE00ED339D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6170ED052CE23DFA00ED339D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6170ED0C2CE23DFA00ED339D;
+			remoteInfo = "Breath Snack";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6125B69C2CE77FC1009BB0D9 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		6170ED0D2CE23DFA00ED339D /* Breath Snack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breath Snack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6170ED102CE23DFA00ED339D /* Breath_SnackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breath_SnackApp.swift; sourceTree = "<group>"; };
+		6170ED142CE23DFE00ED339D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6170ED172CE23DFE00ED339D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6170ED1D2CE23DFE00ED339D /* Breath SnackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Breath SnackTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6170ED212CE23DFE00ED339D /* Breath_SnackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breath_SnackTests.swift; sourceTree = "<group>"; };
+		6170ED272CE23DFE00ED339D /* Breath SnackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Breath SnackUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6170ED2B2CE23DFE00ED339D /* Breath_SnackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breath_SnackUITests.swift; sourceTree = "<group>"; };
+		6170ED2D2CE23DFE00ED339D /* Breath_SnackUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breath_SnackUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6170ED3A2CE242B000ED339D /* BreathingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSessionView.swift; sourceTree = "<group>"; };
+		6170ED3C2CE242FE00ED339D /* BreathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathView.swift; sourceTree = "<group>"; };
+		6170ED3E2CE2431800ED339D /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		6170ED402CE2432D00ED339D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		6170ED422CE243EA00ED339D /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		6170ED442CE2441300ED339D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		6170ED462CE2443C00ED339D /* BreathSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathSession.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6170ED0A2CE23DFA00ED339D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6170ED1A2CE23DFE00ED339D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6170ED242CE23DFE00ED339D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6170ED042CE23DFA00ED339D = {
+			isa = PBXGroup;
+			children = (
+				6170ED0F2CE23DFA00ED339D /* Breath Snack */,
+				6170ED202CE23DFE00ED339D /* Breath SnackTests */,
+				6170ED2A2CE23DFE00ED339D /* Breath SnackUITests */,
+				6170ED0E2CE23DFA00ED339D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6170ED0E2CE23DFA00ED339D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6170ED0D2CE23DFA00ED339D /* Breath Snack.app */,
+				6170ED1D2CE23DFE00ED339D /* Breath SnackTests.xctest */,
+				6170ED272CE23DFE00ED339D /* Breath SnackUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6170ED0F2CE23DFA00ED339D /* Breath Snack */ = {
+			isa = PBXGroup;
+			children = (
+				6170ED102CE23DFA00ED339D /* Breath_SnackApp.swift */,
+				6170ED3A2CE242B000ED339D /* BreathingSessionView.swift */,
+				6170ED3C2CE242FE00ED339D /* BreathView.swift */,
+				6170ED3E2CE2431800ED339D /* MainTabView.swift */,
+				6170ED422CE243EA00ED339D /* AccountView.swift */,
+				6170ED442CE2441300ED339D /* CalendarView.swift */,
+				6170ED462CE2443C00ED339D /* BreathSession.swift */,
+				6125B69C2CE77FC1009BB0D9 /* SessionManager.swift */,
+				6170ED402CE2432D00ED339D /* WelcomeView.swift */,
+				6170ED142CE23DFE00ED339D /* Assets.xcassets */,
+				6170ED162CE23DFE00ED339D /* Preview Content */,
+			);
+			path = "Breath Snack";
+			sourceTree = "<group>";
+		};
+		6170ED162CE23DFE00ED339D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6170ED172CE23DFE00ED339D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6170ED202CE23DFE00ED339D /* Breath SnackTests */ = {
+			isa = PBXGroup;
+			children = (
+				6170ED212CE23DFE00ED339D /* Breath_SnackTests.swift */,
+			);
+			path = "Breath SnackTests";
+			sourceTree = "<group>";
+		};
+		6170ED2A2CE23DFE00ED339D /* Breath SnackUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6170ED2B2CE23DFE00ED339D /* Breath_SnackUITests.swift */,
+				6170ED2D2CE23DFE00ED339D /* Breath_SnackUITestsLaunchTests.swift */,
+			);
+			path = "Breath SnackUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6170ED0C2CE23DFA00ED339D /* Breath Snack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6170ED312CE23DFE00ED339D /* Build configuration list for PBXNativeTarget "Breath Snack" */;
+			buildPhases = (
+				6170ED092CE23DFA00ED339D /* Sources */,
+				6170ED0A2CE23DFA00ED339D /* Frameworks */,
+				6170ED0B2CE23DFA00ED339D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Breath Snack";
+			productName = "Breath Snack";
+			productReference = 6170ED0D2CE23DFA00ED339D /* Breath Snack.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6170ED1C2CE23DFE00ED339D /* Breath SnackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6170ED342CE23DFE00ED339D /* Build configuration list for PBXNativeTarget "Breath SnackTests" */;
+			buildPhases = (
+				6170ED192CE23DFE00ED339D /* Sources */,
+				6170ED1A2CE23DFE00ED339D /* Frameworks */,
+				6170ED1B2CE23DFE00ED339D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6170ED1F2CE23DFE00ED339D /* PBXTargetDependency */,
+			);
+			name = "Breath SnackTests";
+			productName = "Breath SnackTests";
+			productReference = 6170ED1D2CE23DFE00ED339D /* Breath SnackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6170ED262CE23DFE00ED339D /* Breath SnackUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6170ED372CE23DFE00ED339D /* Build configuration list for PBXNativeTarget "Breath SnackUITests" */;
+			buildPhases = (
+				6170ED232CE23DFE00ED339D /* Sources */,
+				6170ED242CE23DFE00ED339D /* Frameworks */,
+				6170ED252CE23DFE00ED339D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6170ED292CE23DFE00ED339D /* PBXTargetDependency */,
+			);
+			name = "Breath SnackUITests";
+			productName = "Breath SnackUITests";
+			productReference = 6170ED272CE23DFE00ED339D /* Breath SnackUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6170ED052CE23DFA00ED339D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					6170ED0C2CE23DFA00ED339D = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					6170ED1C2CE23DFE00ED339D = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 6170ED0C2CE23DFA00ED339D;
+					};
+					6170ED262CE23DFE00ED339D = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 6170ED0C2CE23DFA00ED339D;
+					};
+				};
+			};
+			buildConfigurationList = 6170ED082CE23DFA00ED339D /* Build configuration list for PBXProject "Breath Snack" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6170ED042CE23DFA00ED339D;
+			productRefGroup = 6170ED0E2CE23DFA00ED339D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6170ED0C2CE23DFA00ED339D /* Breath Snack */,
+				6170ED1C2CE23DFE00ED339D /* Breath SnackTests */,
+				6170ED262CE23DFE00ED339D /* Breath SnackUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6170ED0B2CE23DFA00ED339D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6170ED182CE23DFE00ED339D /* Preview Assets.xcassets in Resources */,
+				6170ED152CE23DFE00ED339D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6170ED1B2CE23DFE00ED339D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6170ED252CE23DFE00ED339D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6170ED092CE23DFA00ED339D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6170ED3D2CE242FE00ED339D /* BreathView.swift in Sources */,
+				6170ED472CE2443C00ED339D /* BreathSession.swift in Sources */,
+				6125B69D2CE77FC1009BB0D9 /* SessionManager.swift in Sources */,
+				6170ED412CE2432D00ED339D /* WelcomeView.swift in Sources */,
+				6170ED452CE2441300ED339D /* CalendarView.swift in Sources */,
+				6170ED112CE23DFA00ED339D /* Breath_SnackApp.swift in Sources */,
+				6170ED432CE243EA00ED339D /* AccountView.swift in Sources */,
+				6170ED3B2CE242B000ED339D /* BreathingSessionView.swift in Sources */,
+				6170ED3F2CE2431800ED339D /* MainTabView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6170ED192CE23DFE00ED339D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6170ED222CE23DFE00ED339D /* Breath_SnackTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6170ED232CE23DFE00ED339D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6170ED2C2CE23DFE00ED339D /* Breath_SnackUITests.swift in Sources */,
+				6170ED2E2CE23DFE00ED339D /* Breath_SnackUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6170ED1F2CE23DFE00ED339D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6170ED0C2CE23DFA00ED339D /* Breath Snack */;
+			targetProxy = 6170ED1E2CE23DFE00ED339D /* PBXContainerItemProxy */;
+		};
+		6170ED292CE23DFE00ED339D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6170ED0C2CE23DFA00ED339D /* Breath Snack */;
+			targetProxy = 6170ED282CE23DFE00ED339D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6170ED2F2CE23DFE00ED339D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6170ED302CE23DFE00ED339D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6170ED322CE23DFE00ED339D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Breath Snack/Preview Content\"";
+				DEVELOPMENT_TEAM = L79F55H896;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MyApps.Practice.Breath-Snack";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6170ED332CE23DFE00ED339D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Breath Snack/Preview Content\"";
+				DEVELOPMENT_TEAM = L79F55H896;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MyApps.Practice.Breath-Snack";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6170ED352CE23DFE00ED339D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L79F55H896;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MyApps.Practice.Breath-SnackTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Breath Snack.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Breath Snack";
+			};
+			name = Debug;
+		};
+		6170ED362CE23DFE00ED339D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L79F55H896;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MyApps.Practice.Breath-SnackTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Breath Snack.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Breath Snack";
+			};
+			name = Release;
+		};
+		6170ED382CE23DFE00ED339D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L79F55H896;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MyApps.Practice.Breath-SnackUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Breath Snack";
+			};
+			name = Debug;
+		};
+		6170ED392CE23DFE00ED339D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L79F55H896;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MyApps.Practice.Breath-SnackUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Breath Snack";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6170ED082CE23DFA00ED339D /* Build configuration list for PBXProject "Breath Snack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6170ED2F2CE23DFE00ED339D /* Debug */,
+				6170ED302CE23DFE00ED339D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6170ED312CE23DFE00ED339D /* Build configuration list for PBXNativeTarget "Breath Snack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6170ED322CE23DFE00ED339D /* Debug */,
+				6170ED332CE23DFE00ED339D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6170ED342CE23DFE00ED339D /* Build configuration list for PBXNativeTarget "Breath SnackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6170ED352CE23DFE00ED339D /* Debug */,
+				6170ED362CE23DFE00ED339D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6170ED372CE23DFE00ED339D /* Build configuration list for PBXNativeTarget "Breath SnackUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6170ED382CE23DFE00ED339D /* Debug */,
+				6170ED392CE23DFE00ED339D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6170ED052CE23DFA00ED339D /* Project object */;
+}
