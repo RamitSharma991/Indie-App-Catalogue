@@ -23,40 +23,38 @@ struct BreathingSessionView: View {
         self.routine = routine
         _timeRemaining = State(initialValue: routine.duration)
     }
-    
     private var gradientColors: [Color] {
         switch routine.breathPattern {
         case .diaphragmatic:
-            return [Color(hex: "A5CAD2"), Color(hex: "FF7B89")]
+            return [Color(hex: "A5CAD2"), Color(hex: "FF7B89"), Color(hex:"A5CAD2"), Color(hex:"8A5082")]
         case .fourSevenEight:
-            return [Color(hex: "8A5082"), Color(hex: "A5CAD2")]
+            return [Color(hex: "8A5082"), Color(hex: "A5CAD2"), Color(hex: "A5CAD2"), Color(hex: "FF7B89")]
         case .bellowsBreath:
-            return [Color(hex: "438BD3"), Color(hex: "FF9DDA")]
+            return [Color(hex: "438BD3"), Color(hex: "FF9DDA"), Color(hex: "EE4392"), Color(hex: "004E99")]
         case .breathOfFire:
-            return [Color(hex: "EE4392"), Color(hex: "004E99")]
+            return [Color(hex: "EE4392"), Color(hex: "004E99"), Color(hex: "438BD3"), Color(hex: "FF9DDA")]
         case .boxBreathing:
-            return [Color(hex: "004E99"), Color(hex: "BCE6FF")]
+            return [Color(hex: "004E99"), Color(hex: "BCE6FF"), Color(hex: "9FA5D5"), Color(hex: "E0F8F7")]
         case .alternateNostril:
-            return [Color(hex: "9FA5D5"), Color(hex: "E0F8F7")]
+            return [Color(hex: "9FA5D5"), Color(hex: "E0F8F7"), Color(hex: "004E99"), Color(hex: "BCE6FF")]
         case .fiveFiveFive:
-            return [Color(hex: "D9AAC7"), Color(hex: "3127A8")]
+            return [Color(hex: "D9AAC7"), Color(hex: "3127A8"), Color(hex: "451E61"), Color(hex: "FB8E6A")]
         case .lengthenedExhale:
-            return [Color(hex: "451E61"), Color(hex: "FB8E6A")]
+            return [Color(hex: "451E61"), Color(hex: "FB8E6A"), Color(hex: "D9AAC7"), Color(hex: "3127A8")]
         case .deepVisualization:
-            return [Color(hex: "447A7A"), Color(hex: "F9E866")]
+            return [Color(hex: "F9E866"), Color(hex: "447A7A"), Color(hex: "F1EAB9"), Color(hex: "FF8C8C")]
         case .coherentBreathing:
-            return [Color(hex: "F1EAB9"), Color(hex: "FF8C8C")]
+            return [Color(hex: "F1EAB9"), Color(hex: "FF8C8C"), Color(hex: "447A7A"), Color(hex: "F9E866")]
         case .rhythmicRunning:
-            return [Color(hex: "D8B5FF"), Color(hex: "1EAE98")]
+            return [Color(hex: "D8B5FF"), Color(hex: "1EAE98"), Color(hex: "2B4C59"), Color(hex: "4F3466")]
         case .pursedLip:
-            return [Color(hex: "2B4C59"), Color(hex: "988080")]
+            return [Color(hex: "2B4C59"), Color(hex: "988080"), Color(hex: "D8B5FF"), Color(hex: "1EAE98")]
         case .slowBodyScan:
-            return [Color(hex: "F36A8F"), Color(hex: "5048FF")]
+            return [Color(hex: "FFA166"), Color(hex: "5048FF"), Color(hex: "A2C374"), Color(hex: "F36A8F")]
         case .mindfulCounting:
-            return [Color(hex: "FFA166"), Color(hex: "5048FF")]
+            return [Color(hex: "A2C374"), Color(hex: "F36A8F"), Color(hex: "FFA166"), Color(hex: "5048FF")]
         }
     }
-    
     
     var body: some View {
         ZStack {
@@ -99,7 +97,9 @@ struct BreathingSessionView: View {
                     // Combined Breathing Animation Section
                     if isSessionActive {
                         ZStack(alignment: .center) {
-                            // Circles in background
+                            VStack(spacing: 16) {
+                                // Circles in background with hold time
+                                ZStack {
                             AnimatedCircles(
                                 scale: scale,
                                 middleScale: middleScale,
@@ -110,16 +110,34 @@ struct BreathingSessionView: View {
                             .animation(.easeInOut(duration: getAnimationDuration()).delay(0.1), value: middleScale)
                             .animation(.easeInOut(duration: getAnimationDuration()).delay(0.2), value: innerScale)
                             
-                            // Text overlay
-                            BreathText(
-                                breathPhase: breathPhase,
-                                holdTime: holdTime,
-                                gradientColors: gradientColors
-                            )
-                            .offset(y: -10) // Adjust this value to position text higher or lower
+                                    // Only the hold time number
+                                    if holdTime > 0 {
+                                        Text("\(holdTime)")
+                                            .font(.system(size: 60, weight: .bold))
+                                            .foregroundColor(gradientColors[1])
+                                            .frame(height: 80)
+                                            .contentTransition(.opacity)
+                                            .animation(.easeInOut(duration: 0.3), value: holdTime)
+                                    }
+                                }
+                                
+                                // Breath phase text in separate rectangle
+                                RoundedRectangle(cornerRadius: 25)
+                                    .fill(.ultraThinMaterial)
+                                    .frame(height: 50)
+                                    .overlay(
+                                        Text(breathPhase)
+                                            .font(.system(size: 24, design: .rounded))
+                                            .foregroundColor(gradientColors[1])
+                                            .opacity(holdTime > 0 ? 0.6 : 1.0)
+                                            .contentTransition(.opacity)
+                                            .animation(.easeInOut(duration: 0.3), value: breathPhase)
+                                    )
+                                    .frame(maxWidth: 300)
                         }
                         .frame(maxWidth: .infinity)
                         .shadow(radius: 0.5)
+                        }
                     }
                     
                     Spacer()
@@ -475,27 +493,31 @@ struct BreathText: View {
     let gradientColors: [Color]
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 16) {
+            // Hold time number (stays inside AnimatedCircles)
             if holdTime > 0 {
-                // Hold time number
                 Text("\(holdTime)")
-                    .font(.system(.title, design: .rounded))
+                    .font(.system(size: 60, weight: .heavy))
                     .foregroundColor(gradientColors[1])
-                    .frame(height: 60)
+                    .frame(height: 80)
                     .contentTransition(.opacity)
                     .animation(.easeInOut(duration: 0.3), value: holdTime)
             }
             
-            // Breath phase text
-            Text(breathPhase)
-                .font(.system(size: 24, design: .rounded))
-                .foregroundColor(gradientColors[1])
-                .frame(height: 40)
-                .opacity(holdTime > 0 ? 0.6 : 1.0)
-                .contentTransition(.opacity)
-                .animation(.easeInOut(duration: 0.3), value: breathPhase)
+            // Breath phase text (in separate rounded rectangle)
+            RoundedRectangle(cornerRadius: 25)
+                .fill(.ultraThinMaterial)
+                .frame(height: 50)
+                .overlay(
+                    Text(breathPhase)
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(gradientColors[1])
+                        .opacity(holdTime > 0 ? 0.6 : 1.0)
+                        .contentTransition(.opacity)
+                        .animation(.easeInOut(duration: 0.3), value: breathPhase)
+                )
+                .frame(maxWidth: 280)
         }
-        .frame(maxWidth: 300)
     }
 }
 
@@ -504,29 +526,102 @@ struct AnimatedCircles: View {
     let middleScale: CGFloat
     let innerScale: CGFloat
     let gradientColors: [Color]
+    @State private var animate = false
     
     var body: some View {
-        ZStack {
-            // Outer circle (larger, no stroke)
-            Circle()
-                .fill(gradientColors[0])
-                .opacity(0.15)
-                .frame(width: 280, height: 280)
-                .scaleEffect(scale)
-            
-            // Middle circle
-            Circle()
-                .fill(gradientColors[0])
-                .opacity(0.2)
-                .frame(width: 220, height: 220)
-                .scaleEffect(middleScale)
-            
-            // Inner circle
-            Circle()
-                .fill(gradientColors[0])
-                .opacity(0.85)
-                .frame(width: 160, height: 160)
-                .scaleEffect(innerScale)
-        }
+        RoundedRectangle(cornerRadius: 24)
+            .fill(.ultraThinMaterial)
+            .frame(width: 280, height: 280)
+            .overlay(
+                ZStack {
+                    // Outer circle (larger, no stroke)
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: gradientColors + gradientColors,
+                                startPoint: animate ? .topTrailing : .topLeading,
+                                endPoint: animate ? .bottomLeading : .bottomTrailing
+                            )
+                        )
+                        .overlay(
+                            Circle()
+                                .fill(
+                                    RadialGradient(
+                                        colors: gradientColors,
+                                        center: .center,
+                                        startRadius: animate ? 10 : 40,
+                                        endRadius: animate ? 50 : 200
+                                    )
+                                )
+                                .blendMode(.colorBurn)
+                                .opacity(0.5)
+                        )
+                        .opacity(0.15)
+                        .frame(width: 200, height: 200)
+                        .scaleEffect(scale)
+                    
+                    // Middle circle
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: gradientColors + gradientColors,
+                                startPoint: animate ? .topLeading : .bottomTrailing,
+                                endPoint: animate ? .bottomTrailing : .topLeading
+                            )
+                        )
+                        .overlay(
+                            Circle()
+                                .fill(
+                                    RadialGradient(
+                                        colors: gradientColors,
+                                        center: .center,
+                                        startRadius: animate ? 40 : 10,
+                                        endRadius: animate ? 200 : 50
+                                    )
+                                )
+                                .blendMode(.colorBurn)
+                                .opacity(0.5)
+                        )
+                        .opacity(0.2)
+                        .frame(width: 160, height: 160)
+                        .scaleEffect(middleScale)
+                    
+                    // Inner circle
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: gradientColors + gradientColors,
+                                startPoint: animate ? .bottomLeading : .topTrailing,
+                                endPoint: animate ? .topTrailing : .bottomLeading
+                            )
+                        )
+                        .overlay(
+                            Circle()
+                                .fill(
+                                    RadialGradient(
+                                        colors: gradientColors,
+                                        center: .center,
+                                        startRadius: animate ? 20 : 80,
+                                        endRadius: animate ? 100 : 20
+                                    )
+                                )
+                                .blendMode(.colorBurn)
+                                .opacity(0.5)
+                        )
+                        .opacity(0.85)
+                        .frame(width: 120, height: 120)
+                        .scaleEffect(innerScale)
+                }
+            )
+            .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 4)
+            .onAppear {
+                withAnimation(
+                    Animation
+                        .linear(duration: 8)
+                        .repeatForever(autoreverses: true)
+                ) {
+                    animate.toggle()
+                }
+            }
     }
 }
