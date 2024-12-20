@@ -1,3 +1,9 @@
+//
+//  SessionManager.swift
+//  Breath Snack
+//
+//  Created by Ramit Sharma on 11/11/24.
+//
 import SwiftUI
 
 class SessionManager: ObservableObject {
@@ -27,3 +33,4 @@ class SessionManager: ObservableObject {
         }
     }
 } 
+

@@ -16,23 +16,6 @@ struct BreathView: View {
     
     let categories = [
         BreathCategory(
-            title: "Relaxation & Stress Relief",
-            routines: [
-                BreathRoutine(
-                    title: "Diaphragmatic (Abdominal) Breathing",
-                    description: "Sit or lie down comfortably, placing one hand on your chest and the other on your belly. Breathe in deeply through your nose, allowing your diaphragm to expand.",
-                    duration: 600, // 10 minutes
-                    breathPattern: .diaphragmatic
-                ),
-                BreathRoutine(
-                    title: "4-7-8 Breathing (Relaxing Breath)",
-                    description: "Inhale through your nose for a count of 4, hold your breath for a count of 7, and exhale completely through your mouth for a count of 8.",
-                    duration: 300, // 5 minutes
-                    breathPattern: .fourSevenEight
-                )
-            ]
-        ),
-        BreathCategory(
             title: "Physical Performance",
             routines: [
                 BreathRoutine(
@@ -53,12 +36,6 @@ struct BreathView: View {
             title: "Energy & Focus",
             routines: [
                 BreathRoutine(
-                    title: "Bellows Breath (Bhastrika)",
-                    description: "Sit comfortably, inhale and exhale forcefully through the nose, keeping the mouth closed. Engage your diaphragm to create a quick, rhythmic breath.",
-                    duration: 90, // 30 seconds x 3 rounds
-                    breathPattern: .bellowsBreath
-                ),
-                BreathRoutine(
                     title: "Breath of Fire",
                     description: "Take a deep breath in, and then forcefully exhale out of your nose by contracting your abdominal muscles. Inhale passively.",
                     duration: 60, // 1 minute
@@ -69,6 +46,30 @@ struct BreathView: View {
                     description: "Inhale for a count of 4, hold for 4, exhale for 4, and hold again for 4.",
                     duration: 300, // 5 minutes
                     breathPattern: .boxBreathing
+                ),
+                BreathRoutine(
+                    title: "Bellows Breath (Bhastrika)",
+                    description: "Sit comfortably, inhale and exhale forcefully through the nose, keeping the mouth closed. Engage your diaphragm to create a quick, rhythmic breath.",
+                    duration: 90, // 30 seconds x 3 rounds
+                    breathPattern: .bellowsBreath
+                )
+
+            ]
+        ),
+        BreathCategory(
+            title: "Relaxation & Stress Relief",
+            routines: [
+                BreathRoutine(
+                    title: "Diaphragmatic (Abdominal) Breathing",
+                    description: "Sit or lie down comfortably, placing one hand on your chest and the other on your belly. Breathe in deeply through your nose, allowing your diaphragm to expand.",
+                    duration: 600, // 10 minutes
+                    breathPattern: .diaphragmatic
+                ),
+                BreathRoutine(
+                    title: "4-7-8 Breathing (Relaxing Breath)",
+                    description: "Inhale through your nose for a count of 4, hold your breath for a count of 7, and exhale completely through your mouth for a count of 8.",
+                    duration: 300, // 5 minutes
+                    breathPattern: .fourSevenEight
                 )
             ]
         ),
@@ -265,12 +266,11 @@ struct BreathView: View {
     }
 }
 
-struct QuickAccessCard: View {
-    @State private var animate: Bool = false
-
+struct RoutineCard: View {
     let routine: BreathRoutine
-    let onRemove: () -> Void
-    
+    @State private var animate = false
+    private let animationDuration: Double
+    private let animationDelay: Double
     
     private var gradientColors: [Color] {
         switch routine.breathPattern {
@@ -291,7 +291,7 @@ struct QuickAccessCard: View {
         case .lengthenedExhale:
             return [Color(hex: "451E61"), Color(hex: "FB8E6A"), Color(hex: "D9AAC7"), Color(hex: "3127A8")]
         case .deepVisualization:
-            return [Color(hex: "447A7A"), Color(hex: "F9E866"), Color(hex: "F1EAB9"), Color(hex: "FF8C8C")]
+            return [Color(hex: "F9E866"), Color(hex: "447A7A"), Color(hex: "F1EAB9"), Color(hex: "FF8C8C")]
         case .coherentBreathing:
             return [Color(hex: "F1EAB9"), Color(hex: "FF8C8C"), Color(hex: "447A7A"), Color(hex: "F9E866")]
         case .rhythmicRunning:
@@ -304,6 +304,14 @@ struct QuickAccessCard: View {
             return [Color(hex: "A2C374"), Color(hex: "F36A8F"), Color(hex: "FFA166"), Color(hex: "5048FF")]
         }
     }
+
+    init(routine: BreathRoutine) {
+        self.routine = routine
+        // Generate random duration between 4-8 seconds
+        self.animationDuration = Double.random(in: 4...8)
+        // Generate random delay between 0-2 seconds
+        self.animationDelay = Double.random(in: 0...2)
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -312,7 +320,6 @@ struct QuickAccessCard: View {
                 // Linear Gradient at the base
                 Rectangle()
                     .fill(
-//                        LinearGradient(colors: gradientColors, startPoint: .bottom, endPoint: .top)
                         LinearGradient(
                             colors: gradientColors,
                             startPoint: animate ? .topTrailing : .topLeading,
@@ -324,7 +331,6 @@ struct QuickAccessCard: View {
                 // Radial Gradient on top of the linear gradient
                 Rectangle()
                     .fill(
-//                        RadialGradient(colors: gradientColors, center: .center, startRadius: 10, endRadius: 70)
                         RadialGradient(
                             colors: gradientColors,
                             center: .center,
@@ -332,11 +338,128 @@ struct QuickAccessCard: View {
                             endRadius: animate ? 50 : 200
                         )
                     )
-                    .blendMode(.colorBurn) // Use blend mode to combine gradients
-                    .opacity(0.5) // Adjust opacity of radial gradient
+                    .blendMode(.colorBurn)
+                    .opacity(0.5)
+                    .frame(height: 140)
+            }
+            .onAppear {
+                // Add delay before starting animation
+                DispatchQueue.main.asyncAfter(deadline: .now() + animationDelay) {
+                    withAnimation(
+                        Animation
+                            .linear(duration: animationDuration)
+                            .repeatForever(autoreverses: true)
+                    ) {
+                        animate.toggle()
+                    }
+                }
+            }
+            
+            // Content Section (30% of height)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(routine.title)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .lineLimit(2)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Text("\(routine.duration / 60) \((routine.duration / 60) == 1 ? "minute" : "minutes")")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .frame(height: 60)
+            .padding(.horizontal, 16)
+            .background(.ultraThinMaterial)
+        }
+        .frame(width: 300, height: 200)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .shadow(
+            color: Color.black.opacity(0.15),
+            radius: 8,
+            x: 0,
+            y: 4
+        )
+        .padding(.vertical, 4)
+    }
+}
+
+struct QuickAccessCard: View {
+    let routine: BreathRoutine
+    let onRemove: () -> Void
+    @State private var animate = false
+    private let animationDuration: Double
+    private let animationDelay: Double
+    private var gradientColors: [Color] {
+        switch routine.breathPattern {
+        case .diaphragmatic:
+            return [Color(hex: "A5CAD2"), Color(hex: "FF7B89"), Color(hex:"A5CAD2"), Color(hex:"8A5082")]
+        case .fourSevenEight:
+            return [Color(hex: "8A5082"), Color(hex: "A5CAD2"), Color(hex: "A5CAD2"), Color(hex: "FF7B89")]
+        case .bellowsBreath:
+            return [Color(hex: "438BD3"), Color(hex: "FF9DDA"), Color(hex: "EE4392"), Color(hex: "004E99")]
+        case .breathOfFire:
+            return [Color(hex: "EE4392"), Color(hex: "004E99"), Color(hex: "438BD3"), Color(hex: "FF9DDA")]
+        case .boxBreathing:
+            return [Color(hex: "004E99"), Color(hex: "BCE6FF"), Color(hex: "9FA5D5"), Color(hex: "E0F8F7")]
+        case .alternateNostril:
+            return [Color(hex: "9FA5D5"), Color(hex: "E0F8F7"), Color(hex: "004E99"), Color(hex: "BCE6FF")]
+        case .fiveFiveFive:
+            return [Color(hex: "D9AAC7"), Color(hex: "3127A8"), Color(hex: "451E61"), Color(hex: "FB8E6A")]
+        case .lengthenedExhale:
+            return [Color(hex: "451E61"), Color(hex: "FB8E6A"), Color(hex: "D9AAC7"), Color(hex: "3127A8")]
+        case .deepVisualization:
+            return [Color(hex: "F9E866"), Color(hex: "447A7A"), Color(hex: "F1EAB9"), Color(hex: "FF8C8C")]
+        case .coherentBreathing:
+            return [Color(hex: "F1EAB9"), Color(hex: "FF8C8C"), Color(hex: "447A7A"), Color(hex: "F9E866")]
+        case .rhythmicRunning:
+            return [Color(hex: "D8B5FF"), Color(hex: "1EAE98"), Color(hex: "2B4C59"), Color(hex: "4F3466")]
+        case .pursedLip:
+            return [Color(hex: "2B4C59"), Color(hex: "988080"), Color(hex: "D8B5FF"), Color(hex: "1EAE98")]
+        case .slowBodyScan:
+            return [Color(hex: "FFA166"), Color(hex: "5048FF"), Color(hex: "A2C374"), Color(hex: "F36A8F")]
+        case .mindfulCounting:
+            return [Color(hex: "A2C374"), Color(hex: "F36A8F"), Color(hex: "FFA166"), Color(hex: "5048FF")]
+        }
+    }
+
+    
+    init(routine: BreathRoutine, onRemove: @escaping () -> Void) {
+        self.routine = routine
+        self.onRemove = onRemove
+        self.animationDuration = Double.random(in: 4...8)
+        self.animationDelay = Double.random(in: 0...2)
+    }
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            ZStack(alignment: .topTrailing) {
+                // Linear Gradient at the base
+                Rectangle()
+                    .fill(
+                        LinearGradient(
+                            colors: gradientColors,
+                            startPoint: animate ? .topTrailing : .topLeading,
+                            endPoint: animate ? .bottomLeading : .bottomTrailing
+                        )
+                    )
                     .frame(height: 140)
 
-                // Button at the top-right corner
+                // Radial Gradient on top of the linear gradient
+                Rectangle()
+                    .fill(
+                        RadialGradient(
+                            colors: gradientColors,
+                            center: .center,
+                            startRadius: animate ? 10 : 40,
+                            endRadius: animate ? 50 : 200
+                        )
+                    )
+                    .blendMode(.colorBurn)
+                    .opacity(0.5)
+                    .frame(height: 140)
+
+                // Star button
                 Button(action: onRemove) {
                     Image(systemName: "star.fill")
                         .imageScale(.medium)
@@ -345,15 +468,18 @@ struct QuickAccessCard: View {
                 }
             }
             .onAppear {
-                withAnimation(
-                    Animation.linear(duration: 6.0).repeatForever(autoreverses: true)
-                ) {
-                    animate.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + animationDelay) {
+                    withAnimation(
+                        Animation
+                            .linear(duration: animationDuration)
+                            .repeatForever(autoreverses: true)
+                    ) {
+                        animate.toggle()
+                    }
                 }
-
             }
 
-            // Content Section (30% of height)
+            // Content Section
             VStack(alignment: .leading, spacing: 4) {
                 Text(routine.title)
                     .font(.headline)
@@ -372,7 +498,7 @@ struct QuickAccessCard: View {
                         .foregroundColor(gradientColors[0])
                 }
             }
-            .frame(height: 60) // 30% of 200
+            .frame(height: 60)
             .padding(.horizontal, 16)
             .background(Color(.systemBackground))
         }
@@ -455,113 +581,6 @@ struct RoutinePickerView: View {
                 dismiss()
             })
         }
-    }
-}
-
-struct RoutineCard: View {
-    @State private var animate: Bool = false
-    let routine: BreathRoutine
-    
-    private var gradientColors: [Color] {
-        switch routine.breathPattern {
-        case .diaphragmatic:
-            return [Color(hex: "A5CAD2"), Color(hex: "FF7B89"), Color(hex:"A5CAD2"), Color(hex:"8A5082")]
-        case .fourSevenEight:
-            return [Color(hex: "8A5082"), Color(hex: "A5CAD2"), Color(hex: "A5CAD2"), Color(hex: "FF7B89")]
-        case .bellowsBreath:
-            return [Color(hex: "438BD3"), Color(hex: "FF9DDA"), Color(hex: "EE4392"), Color(hex: "004E99")]
-        case .breathOfFire:
-            return [Color(hex: "EE4392"), Color(hex: "004E99"), Color(hex: "438BD3"), Color(hex: "FF9DDA")]
-        case .boxBreathing:
-            return [Color(hex: "004E99"), Color(hex: "BCE6FF"), Color(hex: "9FA5D5"), Color(hex: "E0F8F7")]
-        case .alternateNostril:
-            return [Color(hex: "9FA5D5"), Color(hex: "E0F8F7"), Color(hex: "004E99"), Color(hex: "BCE6FF")]
-        case .fiveFiveFive:
-            return [Color(hex: "D9AAC7"), Color(hex: "3127A8"), Color(hex: "451E61"), Color(hex: "FB8E6A")]
-        case .lengthenedExhale:
-            return [Color(hex: "451E61"), Color(hex: "FB8E6A"), Color(hex: "D9AAC7"), Color(hex: "3127A8")]
-        case .deepVisualization:
-            return [Color(hex: "447A7A"), Color(hex: "F9E866"), Color(hex: "F1EAB9"), Color(hex: "FF8C8C")]
-        case .coherentBreathing:
-            return [Color(hex: "F1EAB9"), Color(hex: "FF8C8C"), Color(hex: "447A7A"), Color(hex: "F9E866")]
-        case .rhythmicRunning:
-            return [Color(hex: "D8B5FF"), Color(hex: "1EAE98"), Color(hex: "2B4C59"), Color(hex: "4F3466")]
-        case .pursedLip:
-            return [Color(hex: "2B4C59"), Color(hex: "988080"), Color(hex: "D8B5FF"), Color(hex: "1EAE98")]
-        case .slowBodyScan:
-            return [Color(hex: "FFA166"), Color(hex: "5048FF"), Color(hex: "A2C374"), Color(hex: "F36A8F")]
-        case .mindfulCounting:
-            return [Color(hex: "A2C374"), Color(hex: "F36A8F"), Color(hex: "FFA166"), Color(hex: "5048FF")]
-        }
-    }
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            // Gradient Header (70% of height)
-            ZStack(alignment: .topTrailing) {
-                // Linear Gradient at the base
-                Rectangle()
-                    .fill(
-//                        LinearGradient(colors: gradientColors, startPoint: .bottom, endPoint: .top)
-                        LinearGradient(
-                            colors: gradientColors,
-                            startPoint: animate ? .topTrailing : .topLeading,
-                            endPoint: animate ? .bottomLeading : .bottomTrailing
-                        )
-                    )
-                    .frame(height: 140)
-
-                // Radial Gradient on top of the linear gradient
-                Rectangle()
-                    .fill(
-//                        RadialGradient(colors: gradientColors, center: .center, startRadius: 10, endRadius: 70)
-                        RadialGradient(
-                            colors: gradientColors,
-                            center: .center,
-                            startRadius: animate ? 10 : 40,
-                            endRadius: animate ? 50 : 200
-                        )
-                    )
-                    .blendMode(.colorBurn) // Use blend mode to combine gradients
-                    .opacity(0.5) // Adjust opacity of radial gradient
-                    .frame(height: 140)
-
-            }
-            .onAppear {
-                withAnimation(
-                    Animation.linear(duration: 6.0).repeatForever(autoreverses: true)
-                ) {
-                    animate.toggle()
-                }
-
-            }
-            
-            // Content Section (30% of height)
-            VStack(alignment: .leading, spacing: 4) {
-                Text(routine.title)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-                    .lineLimit(2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                Text("\(routine.duration / 60) \((routine.duration / 60) == 1 ? "minute" : "minutes")")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
-            .frame(height: 60) // 30% of 200
-            .padding(.horizontal, 16)
-            .background(.ultraThinMaterial)
-        }
-        .frame(width: 300, height: 200)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .shadow(
-            color: Color.black.opacity(0.15),
-            radius: 8,
-            x: 0,
-            y: 4
-        ) // Enhanced bottom shadow
-        .padding(.vertical, 4) // Added padding to make shadow visible
     }
 }
 

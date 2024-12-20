@@ -85,6 +85,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		614EF5102D15450900E6D0DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6170ED462CE2443C00ED339D /* BreathSession.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		614EF5112D1545ED00E6D0DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6170ED3A2CE242B000ED339D /* BreathingSessionView.swift */,
+				6170ED3C2CE242FE00ED339D /* BreathView.swift */,
+				6170ED3E2CE2431800ED339D /* MainTabView.swift */,
+				6170ED422CE243EA00ED339D /* AccountView.swift */,
+				6170ED442CE2441300ED339D /* CalendarView.swift */,
+				6170ED402CE2432D00ED339D /* WelcomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		614EF5122D1545F500E6D0DB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6125B69C2CE77FC1009BB0D9 /* SessionManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		6170ED042CE23DFA00ED339D = {
 			isa = PBXGroup;
 			children = (
@@ -108,15 +137,10 @@
 		6170ED0F2CE23DFA00ED339D /* Breath Snack */ = {
 			isa = PBXGroup;
 			children = (
+				614EF5102D15450900E6D0DB /* Models */,
+				614EF5112D1545ED00E6D0DB /* Views */,
+				614EF5122D1545F500E6D0DB /* Services */,
 				6170ED102CE23DFA00ED339D /* Breath_SnackApp.swift */,
-				6170ED3A2CE242B000ED339D /* BreathingSessionView.swift */,
-				6170ED3C2CE242FE00ED339D /* BreathView.swift */,
-				6170ED3E2CE2431800ED339D /* MainTabView.swift */,
-				6170ED422CE243EA00ED339D /* AccountView.swift */,
-				6170ED442CE2441300ED339D /* CalendarView.swift */,
-				6170ED462CE2443C00ED339D /* BreathSession.swift */,
-				6125B69C2CE77FC1009BB0D9 /* SessionManager.swift */,
-				6170ED402CE2432D00ED339D /* WelcomeView.swift */,
 				6170ED142CE23DFE00ED339D /* Assets.xcassets */,
 				6170ED162CE23DFE00ED339D /* Preview Content */,
 			);

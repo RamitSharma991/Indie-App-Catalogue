@@ -11,6 +11,10 @@ import Charts
 struct CalendarView: View {
     @StateObject private var sessionManager = SessionManager()
     @State private var selectedTimeRange = TimeRange.week
+    private var maxDuration: Int {
+        let maxValue = groupedSessions.flatMap { $0.routines }.map { $0.duration }.max() ?? 0
+        return max(maxValue + 5, 30) // Add padding and ensure minimum scale
+    }
     
     enum TimeRange: String, CaseIterable {
         case week = "D"
@@ -64,10 +68,10 @@ struct CalendarView: View {
                                 ForEach(group.routines) { routine in
                                     LineMark(
                                         x: .value("Date", group.date),
-                                        y: .value("Duration", routine.duration)
+                                        y: .value("Duration", max(0, routine.duration)) // Ensure no negative values
                                     )
                                     .foregroundStyle(getColorForRoutine(routine.title))
-                                    .interpolationMethod(.catmullRom)
+                                    .interpolationMethod(.monotone) // Changed from catmullRom to prevent overshooting
                                 }
                             }
                         }
@@ -95,11 +99,12 @@ struct CalendarView: View {
                                 AxisGridLine()
                                 AxisValueLabel {
                                     if let minutes = value.as(Int.self) {
-                                        Text("\(minutes)m")
+                                        Text("\(max(0, minutes))m") // Ensure no negative values in labels
                                     }
                                 }
                             }
                         }
+                        .chartYScale(domain: 0...maxDuration) // Add fixed Y-axis scale
                         .chartPlotStyle { plotArea in
                             plotArea
                                 .background(Color(.systemGray6).opacity(0.5))
@@ -108,7 +113,7 @@ struct CalendarView: View {
                         .padding()
                         .background(Color(.systemGray6))
                         .clipShape(RoundedRectangle(cornerRadius: 12))
-                        
+                                                
                         // Legend
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 16) {
@@ -118,7 +123,7 @@ struct CalendarView: View {
                                             .fill(getColorForRoutine(type))
                                             .frame(width: 8, height: 8)
                                         Text(type)
-                                            .font(.caption)
+                                            .font(.headline)
                                             .foregroundStyle(.secondary)
                                     }
                                 }
@@ -126,6 +131,7 @@ struct CalendarView: View {
                             .padding(.horizontal)
                         }
                     }
+                    Divider()
                     
                     // Recent Sessions
                     VStack(alignment: .leading, spacing: 16) {
