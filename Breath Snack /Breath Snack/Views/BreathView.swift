@@ -154,7 +154,7 @@ struct BreathView: View {
                             Image(systemName: "star.fill")
                                 .imageScale(.medium)
                                 .foregroundColor(.yellow)
-                            Text("Your Snack Picks")
+                            Text("Make your Custom Snack")
                                 .font(.title2)
                                 .fontWeight(.bold)
                         }
@@ -423,7 +423,6 @@ struct QuickAccessCard: View {
         }
     }
 
-    
     init(routine: BreathRoutine, onRemove: @escaping () -> Void) {
         self.routine = routine
         self.onRemove = onRemove
