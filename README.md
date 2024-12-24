@@ -29,7 +29,7 @@ An offline, lightweight personal wallet for storing necessary documents required
 
 #### Key Concepts:
 - Data persistence with **Core Data** or **UserDefaults**.
-- Dynamic SwiftUI charts using `Swift Charts`.
+- Dynamic SwiftUI 
 - MVVM architecture for clear separation of concerns.
 
 ---
