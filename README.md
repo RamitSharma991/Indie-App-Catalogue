@@ -3,7 +3,7 @@ A collection of **SwiftUI-based projects** designed for learning, experimenting,
 
 --- 
  
-## 🚀 Projects in the Catalogue 
+## 🚀 Projects in the Catalogue
 
 ### 1. **Wordsubs(Word Substitute App)** ✍️  
 A simple app that helps users replace words or phrases in a body of text with alternative words, making it perfect for writers, editors, and content creators.  
@@ -26,6 +26,7 @@ An offline, lightweight personal wallet for storing necessary documents required
 #### Features:
 - Add, edit, and delete documents.
 - Visualize documents concisely.
+- - Offline Storage
 
 #### Key Concepts:
 - Data persistence with **Core Data** or **UserDefaults**.
