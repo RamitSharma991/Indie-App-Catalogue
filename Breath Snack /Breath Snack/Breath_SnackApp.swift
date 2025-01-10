@@ -13,9 +13,8 @@ struct BreathSnackApp: App {
     
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            ContentView()
                 .environmentObject(sessionManager)
         }
     }
 }
-

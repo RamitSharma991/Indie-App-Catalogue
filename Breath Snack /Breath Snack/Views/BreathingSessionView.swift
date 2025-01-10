@@ -116,8 +116,9 @@ struct BreathingSessionView: View {
                                             .font(.system(size: 60, weight: .bold))
                                             .foregroundColor(gradientColors[1])
                                             .frame(height: 80)
-                                            .contentTransition(.opacity)
-                                            .animation(.easeInOut(duration: 0.3), value: holdTime)
+                                            .transition(.opacity.combined(with: .scale))
+                                            .contentTransition(.numericText())
+                                            .animation(.spring(response: 0.3, dampingFraction: 0.8), value: holdTime)
                                     }
                                 }
                                 
@@ -130,10 +131,13 @@ struct BreathingSessionView: View {
                                             .font(.system(size: 24, design: .rounded))
                                             .foregroundColor(gradientColors[1])
                                             .opacity(holdTime > 0 ? 0.6 : 1.0)
-                                            .contentTransition(.opacity)
-                                            .animation(.easeInOut(duration: 0.3), value: breathPhase)
+                                            .transition(AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                                            .contentTransition(.identity)
+                                            .animation(.spring(response: 0.4, dampingFraction: 0.7), value: breathPhase)
                                     )
                                     .frame(maxWidth: 300)
+                                    .transition(AnyTransition.opacity.combined(with: .scale))
+                                    .animation(.spring(response: 0.4, dampingFraction: 0.7), value: breathPhase)
                         }
                         .frame(maxWidth: .infinity)
                         .shadow(radius: 0.5)
@@ -495,28 +499,32 @@ struct BreathText: View {
     var body: some View {
         VStack(spacing: 16) {
             // Hold time number (stays inside AnimatedCircles)
-            if holdTime > 0 {
-                Text("\(holdTime)")
-                    .font(.system(size: 60, weight: .heavy))
-                    .foregroundColor(gradientColors[1])
-                    .frame(height: 80)
-                    .contentTransition(.opacity)
-                    .animation(.easeInOut(duration: 0.3), value: holdTime)
+            Group {
+                if holdTime > 0 {
+                    Text("\(holdTime)")
+                        .font(.system(size: 60, weight: .heavy))
+                        .foregroundColor(gradientColors[1])
+                        .frame(height: 80)
+                        .transition(.scale.combined(with: .opacity))
+                        .animation(.spring(response: 0.3, dampingFraction: 0.8), value: holdTime)
+                }
             }
             
             // Breath phase text (in separate rounded rectangle)
-            RoundedRectangle(cornerRadius: 25)
-                .fill(.ultraThinMaterial)
-                .frame(height: 50)
-                .overlay(
-                    Text(breathPhase)
-                        .font(.system(size: 24, weight: .bold))
-                        .foregroundColor(gradientColors[1])
-                        .opacity(holdTime > 0 ? 0.6 : 1.0)
-                        .contentTransition(.opacity)
-                        .animation(.easeInOut(duration: 0.3), value: breathPhase)
-                )
-                .frame(maxWidth: 280)
+            Group {
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.ultraThinMaterial)
+                    .frame(height: 50)
+                    .overlay(
+                        Text(breathPhase)
+                            .font(.system(size: 24, weight: .bold))
+                            .foregroundColor(gradientColors[1])
+                            .opacity(holdTime > 0 ? 0.6 : 1.0)
+                    )
+                    .frame(maxWidth: 280)
+            }
+            .transition(.scale.combined(with: .opacity))
+            .animation(.spring(response: 0.4, dampingFraction: 0.7), value: breathPhase)
         }
     }
 }
@@ -608,7 +616,7 @@ struct AnimatedCircles: View {
                                 .blendMode(.colorBurn)
                                 .opacity(0.5)
                         )
-                        .opacity(0.85)
+                        .opacity(0.45)
                         .frame(width: 120, height: 120)
                         .scaleEffect(innerScale)
                 }

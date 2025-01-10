@@ -21,6 +21,7 @@
 		6170ED432CE243EA00ED339D /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED422CE243EA00ED339D /* AccountView.swift */; };
 		6170ED452CE2441300ED339D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED442CE2441300ED339D /* CalendarView.swift */; };
 		6170ED472CE2443C00ED339D /* BreathSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED462CE2443C00ED339D /* BreathSession.swift */; };
+		61AFC14B2D3164D9007A9FD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AFC14A2D3164D9007A9FD4 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		61259E1A2D2F9F3700984ACF /* Breath-Snack-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Breath-Snack-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6125B69C2CE77FC1009BB0D9 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		6170ED0D2CE23DFA00ED339D /* Breath Snack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breath Snack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6170ED102CE23DFA00ED339D /* Breath_SnackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breath_SnackApp.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		6170ED422CE243EA00ED339D /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		6170ED442CE2441300ED339D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		6170ED462CE2443C00ED339D /* BreathSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathSession.swift; sourceTree = "<group>"; };
+		61AFC14A2D3164D9007A9FD4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 				6170ED422CE243EA00ED339D /* AccountView.swift */,
 				6170ED442CE2441300ED339D /* CalendarView.swift */,
 				6170ED402CE2432D00ED339D /* WelcomeView.swift */,
+				61AFC14A2D3164D9007A9FD4 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +146,7 @@
 				614EF5122D1545F500E6D0DB /* Services */,
 				6170ED102CE23DFA00ED339D /* Breath_SnackApp.swift */,
 				6170ED142CE23DFE00ED339D /* Assets.xcassets */,
+				61259E1A2D2F9F3700984ACF /* Breath-Snack-Info.plist */,
 				6170ED162CE23DFE00ED339D /* Preview Content */,
 			);
 			path = "Breath Snack";
@@ -308,6 +313,7 @@
 				6170ED412CE2432D00ED339D /* WelcomeView.swift in Sources */,
 				6170ED452CE2441300ED339D /* CalendarView.swift in Sources */,
 				6170ED112CE23DFA00ED339D /* Breath_SnackApp.swift in Sources */,
+				61AFC14B2D3164D9007A9FD4 /* ContentView.swift in Sources */,
 				6170ED432CE243EA00ED339D /* AccountView.swift in Sources */,
 				6170ED3B2CE242B000ED339D /* BreathingSessionView.swift in Sources */,
 				6170ED3F2CE2431800ED339D /* MainTabView.swift in Sources */,
@@ -477,6 +483,7 @@
 				DEVELOPMENT_TEAM = L79F55H896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Breath-Snack-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -506,6 +513,7 @@
 				DEVELOPMENT_TEAM = L79F55H896;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Breath-Snack-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
