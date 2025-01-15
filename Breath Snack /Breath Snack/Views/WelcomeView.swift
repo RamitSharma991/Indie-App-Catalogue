@@ -7,13 +7,10 @@
 
 import SwiftUI
 
-
 struct WelcomeView: View {
-    @Binding var isPresented: Bool
-    @EnvironmentObject var sessionManager: SessionManager
+    @State private var isWelcomeComplete = false
     @State private var appearAnimation = false
     @State private var isAnimating = false
-    @State private var opacity = 1.0
     
     var body: some View {
         ZStack {
@@ -22,13 +19,14 @@ struct WelcomeView: View {
             VStack(spacing: 40) {
                 Spacer()
                 
+                // App icon and title group
                 VStack(spacing: 25) {
                     Image(systemName: "wind")
                         .font(.system(size: 80, weight: .thin))
                         .foregroundStyle(.accent)
                         .symbolEffect(.bounce, value: isAnimating)
                         .onAppear {
-                            withAnimation(.linear(duration: 2).repeatForever()) {
+                            withAnimation(.easeInOut(duration: 2).repeatForever()) {
                                 isAnimating.toggle()
                             }
                         }
@@ -47,15 +45,11 @@ struct WelcomeView: View {
                 
                 Spacer()
                 
+                // Action buttons
                 VStack(spacing: 16) {
                     Button(action: {
-                        withAnimation(.easeInOut(duration: 0.3)) {
-                            opacity = 0
-                            appearAnimation = false
-                        }
-                        
-                        withAnimation(.easeInOut(duration: 0.3)) {
-                            isPresented = false
+                        withAnimation(.spring) {
+                            isWelcomeComplete = true
                         }
                     }) {
                         Text("Get Started")
@@ -70,7 +64,7 @@ struct WelcomeView: View {
                     Button(action: {
                         // Handle sign in action
                     }) {
-                        Text("The journey starts from within")
+                        Text("Already have an account? Sign in")
                             .font(.system(size: 16, weight: .thin))
                             .foregroundStyle(.secondary)
                     }
@@ -82,14 +76,24 @@ struct WelcomeView: View {
                     .frame(height: 50)
             }
             .padding(.horizontal, 30)
-            .opacity(opacity)
         }
         .onAppear {
-            withAnimation(.linear(duration: 0.8).delay(0.3)) {
+            withAnimation(.easeOut(duration: 0.8).delay(0.3)) {
                 appearAnimation = true
             }
         }
-        .modifier(FadeTransition(isPresented: opacity > 0))
+        .preferredColorScheme(.light) // Force light mode for welcome screen only
+        .fullScreenCover(isPresented: $isWelcomeComplete) {
+            MainTabViewContainer() // Wrap MainTabView in a container that doesn't force any color scheme
+        }
+    }
+}
+
+// Container for MainTabView that respects system theme
+struct MainTabViewContainer: View {
+    var body: some View {
+        MainTabView()
+            .preferredColorScheme(.dark) // Explicitly set to dark theme
     }
 }
 
@@ -100,8 +104,7 @@ struct AnimatedGradientBackground: View {
     let colors: [Color] = [
         Color.white,
         Color(red: 0.8, green: 0.7, blue: 1.0),  // Light purple
-        Color(red: 1.0, green: 0.8, blue: 0.9),  // Light pink
-        Color.white
+        Color(red: 1.0, green: 0.8, blue: 0.9)  // Light pink
     ]
     let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
@@ -120,15 +123,5 @@ struct AnimatedGradientBackground: View {
     private func randomPoint() -> UnitPoint {
         UnitPoint(x: Double.random(in: 0...1),
                  y: Double.random(in: 0...1))
-    }
-}
-
-struct FadeTransition: ViewModifier {
-    let isPresented: Bool
-    
-    func body(content: Content) -> some View {
-        content
-            .opacity(isPresented ? 1 : 0)
-            .scaleEffect(isPresented ? 1 : 0.95)
     }
 }

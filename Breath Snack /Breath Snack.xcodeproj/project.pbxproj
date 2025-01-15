@@ -21,7 +21,6 @@
 		6170ED432CE243EA00ED339D /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED422CE243EA00ED339D /* AccountView.swift */; };
 		6170ED452CE2441300ED339D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED442CE2441300ED339D /* CalendarView.swift */; };
 		6170ED472CE2443C00ED339D /* BreathSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170ED462CE2443C00ED339D /* BreathSession.swift */; };
-		61AFC14B2D3164D9007A9FD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AFC14A2D3164D9007A9FD4 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,6 @@
 		6170ED422CE243EA00ED339D /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		6170ED442CE2441300ED339D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		6170ED462CE2443C00ED339D /* BreathSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathSession.swift; sourceTree = "<group>"; };
-		61AFC14A2D3164D9007A9FD4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +103,6 @@
 				6170ED422CE243EA00ED339D /* AccountView.swift */,
 				6170ED442CE2441300ED339D /* CalendarView.swift */,
 				6170ED402CE2432D00ED339D /* WelcomeView.swift */,
-				61AFC14A2D3164D9007A9FD4 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,7 +310,6 @@
 				6170ED412CE2432D00ED339D /* WelcomeView.swift in Sources */,
 				6170ED452CE2441300ED339D /* CalendarView.swift in Sources */,
 				6170ED112CE23DFA00ED339D /* Breath_SnackApp.swift in Sources */,
-				61AFC14B2D3164D9007A9FD4 /* ContentView.swift in Sources */,
 				6170ED432CE243EA00ED339D /* AccountView.swift in Sources */,
 				6170ED3B2CE242B000ED339D /* BreathingSessionView.swift in Sources */,
 				6170ED3F2CE2431800ED339D /* MainTabView.swift in Sources */,
