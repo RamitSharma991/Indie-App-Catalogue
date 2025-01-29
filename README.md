@@ -8,7 +8,7 @@ A collection of **SwiftUI-based projects** designed for learning, experimenting,
 ### 1. **Wordsubs(Word Substitute App)** ✍️  
 A simple app that helps users replace words or phrases in a body of text with alternative words, making it perfect for writers, editors, and content creators.  
  
-#### Features:
+#### Features: 
 - Word substitutes for phrases to improve language skills.
 - Phrase usage and meaning with their one word substitutes. 
 - Intuitive SwiftUI design for a distraction-free experience.
