@@ -60,14 +60,9 @@ struct WelcomeView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 27))
                             .shadow(color: .accent.opacity(0.3), radius: 10, y: 5)
                     }
-                    
-                    Button(action: {
-                        // Handle sign in action
-                    }) {
-                        Text("Already have an account? Sign in")
-                            .font(.system(size: 16, weight: .thin))
-                            .foregroundStyle(.secondary)
-                    }
+                    Text("The real Journey starts from within")
+                        .font(.system(size: 16, weight: .thin))
+                        .foregroundStyle(.secondary)
                 }
                 .opacity(appearAnimation ? 1 : 0)
                 .offset(y: appearAnimation ? 0 : 20)
